@@ -25,7 +25,7 @@ for d in data:
 # print(directions)
 # print(distances)
 
-# Will process the forwards first and calculate its final value since it is easier (no backwards)
+# Calculate the horizontal and vertical position in a same loop
 horizontal = 0
 vertical = 0
 for dir, dist in zip(directions, distances):
@@ -37,6 +37,27 @@ for dir, dist in zip(directions, distances):
         vertical -= dist
     else:
         print("We are sinking or something")
+
+# Print out the results and submit
+print(horizontal)
+print(vertical)
+print(horizontal * vertical)
+
+# Oh, in part two things get more complicated, let's try
+horizontal = 0
+vertical = 0
+aim = 0
+
+for dir, dist in zip(directions, distances):
+    if dir == "forward":
+        horizontal += dist
+        vertical -= dist * aim
+    elif dir == "up":
+        aim -= dist
+    elif dir == "down":
+        aim += dist
+    else:
+        print("We are definitely sinking")
 
 # Print out the results and submit
 print(horizontal)
