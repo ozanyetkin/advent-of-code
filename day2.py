@@ -22,5 +22,23 @@ for d in data:
     directions.append(d[0])
     distances.append(int(d[1]))
 
-print(directions)
-print(distances)
+# print(directions)
+# print(distances)
+
+# Will process the forwards first and calculate its final value since it is easier (no backwards)
+horizontal = 0
+vertical = 0
+for dir, dist in zip(directions, distances):
+    if dir == "forward":
+        horizontal += dist
+    elif dir == "up":
+        vertical += dist
+    elif dir == "down":
+        vertical -= dist
+    else:
+        print("We are sinking or something")
+
+# Print out the results and submit
+print(horizontal)
+print(vertical)
+print(horizontal * vertical)
