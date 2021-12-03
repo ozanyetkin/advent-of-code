@@ -121,4 +121,4 @@ carbondioxide_rate = carbondioxide_rate(data)[0]
 print(oxygen_rate)
 print(carbondioxide_rate)
 
-print(int(oxygen_rate, 2) * int(loser_binary, 2))
+print(int(oxygen_rate, 2) * int(carbondioxide_rate, 2))
