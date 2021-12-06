@@ -52,21 +52,22 @@ test_board = [[1, 2], [3, 5]]
 print(mark_board(test_board, test_number))
 
 # Great, time to call both functions to mark all and find the winning board
-for board in boards:
-    for number in numbers:
+for i, number in enumerate(numbers):
+    for j, board in enumerate(boards):
         winner = False
         board = mark_board(board, number)
         winner = winning_board(board)
-        print(board, winner)
+        # print(board, winner)
 
         if winner == True:
-            print(board, winner, number)
+            print(board, j, winner, number, i)
             total = 0
             for b in board:
                 for n in b:
-                    if isinstance(n, int):
+                    # Oh for God's sake, why True is an instance of integer :/
+                    if n is not True:
                         total += n
-            print(number * total)
+            print(total * number)
             break
 
-# Oh my, code works but seems like I can not detect the first winner, told that list structure would drive me crazy
+# Oh my, that was not very easy, now to part 2
