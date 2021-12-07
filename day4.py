@@ -18,7 +18,7 @@ for i, d in enumerate(data[1:]):
 # Oh list structure will get me killed in further steps, that's for sure
 boards = []
 for i in range(len(board_lines)):
-    boards.append(board_lines[i:i + 5])
+    boards.append(board_lines[i : i + 5])
 
 # Now let's create a function to detect the winning board, prepare yourself squid!
 def winning_board(board):
@@ -28,14 +28,21 @@ def winning_board(board):
 
     winner = False
     for i in range(len(board)):
-        while board[i].count(True) == len(board) or transposed[i].count(True) == len(board):
+        while board[i].count(True) == len(board) or transposed[i].count(True) == len(
+            board
+        ):
             winner = True
             break
     return winner
 
+
 # Small test for winning borad function
-test_boards = [[[True, False], [True, False]], [[False, False], [True, False]], [[False, False], [True, True]]]
-for test in test_boards:    
+test_boards = [
+    [[True, False], [True, False]],
+    [[False, False], [True, False]],
+    [[False, False], [True, True]],
+]
+for test in test_boards:
     print(winning_board(test))
 
 # It works just fine, now let's mark the boards with given numbers, actually, write a function for it
@@ -45,6 +52,7 @@ def mark_board(board, number):
             if number == board[i][j]:
                 board[i][j] = True
     return board
+
 
 # Small test for mark board function
 test_number = 5
@@ -77,8 +85,8 @@ for i, number in enumerate(numbers):
 with open("day4.txt") as file:
     # Opening the file and setting up the boards as a nDimensional np.array.
     content = file.readlines()
-    numbers = [int(n) for n in content[0].split(',')]
-    board_list = [[int(n) for n in b.split()] for b in content[2:] if b != '\n']
+    numbers = [int(n) for n in content[0].split(",")]
+    board_list = [[int(n) for n in b.split()] for b in content[2:] if b != "\n"]
     num_boards = len(board_list) // 5
     num_nums = len(numbers)
     boards = np.array(board_list).reshape((num_boards, 5, 5))
@@ -88,6 +96,7 @@ marked = np.zeros((num_boards, 5, 5), dtype=int)  # Change to 1 when marked.
 boards_won = []
 winning_sums = []
 
+
 def mark(n):
     for z in range(num_boards):
         if z in boards_won:  # If the board has won don't bother marking.
@@ -96,6 +105,7 @@ def mark(n):
             for x in range(5):
                 if boards[z, y, x] == n:
                     marked[z, y, x] = 1
+
 
 def check_win():
     for board_index in range(num_boards):
@@ -110,6 +120,7 @@ def check_win():
                 boards_won.append(board_index)
                 winning_sums.append(return_sum(board_index))
 
+
 def return_sum(winning_index):
     not_marked = []
     for y in range(5):
@@ -117,6 +128,7 @@ def return_sum(winning_index):
             if not marked[winning_index, y, x]:
                 not_marked.append(boards[winning_index, y, x])
     return sum(not_marked) * number
+
 
 # Main loop/logic.
 for number in numbers:
