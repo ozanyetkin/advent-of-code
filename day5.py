@@ -42,7 +42,6 @@ print(np.count_nonzero(grid >= 2))
 # Let's check other codes
 from collections import Counter
 import itertools
-import sys
 
 def parse_input(input):
     vectors = []
