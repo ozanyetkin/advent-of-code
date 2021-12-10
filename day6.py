@@ -51,12 +51,25 @@ print(len(timers))
 
 # Actually, let's write a solver
 def solve(data, days):
+    # Tracker here is the fishes that can give birth
     tracker = [data.count(i) for i in range(9)]
     for day in range(days):
         tracker[(day + 7) % 9] += tracker[day % 9]
     return sum(tracker)
 
+print(f"Part 1: {solve(timers, 80)}")
+print(f"Part 2: {solve(timers, 256)}")
 
-data = [int(x) for x in open("day6.txt").read().strip().split(",")]
-print(f"Part 1: {solve(data, 80)}")
-print(f"Part 2: {solve(data, 256)}")
+# Let's try another approach
+def solver(timers, days):
+    for day in range(days):
+        for i, timer in enumerate(timers):
+            if timer == 0:
+                timers.append(8)
+                timers[i] = 6
+            else:
+                timers[i] -= 1
+    return len(timers)
+
+print(f"Part 1: {solver(timers, 80)}")
+print(f"Part 2: {solver(timers, 256)}")
