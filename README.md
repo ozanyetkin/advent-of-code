@@ -60,6 +60,7 @@ To begin, get your puzzle input.
 Answer: 
 
 ### --- Part Two ---
+
 Considering every single measurement isn't as useful as you expected: there's just too much noise in the data.
 
 Instead, consider sums of a three-measurement sliding window. Again considering the above example:
@@ -106,6 +107,7 @@ Although it hasn't changed, you can still get your puzzle input.
 ## Day 2: Dive!
 
 ### --- Part One ---
+
 Now, you need to figure out how to pilot this thing.
 
 It seems like the submarine can take a series of commands like forward 1, down 2, or up 3:
@@ -141,6 +143,7 @@ To begin, get your puzzle input.
 Answer: 
 
 ### --- Part Two ---
+
 Based on your calculations, the planned course doesn't seem to make any sense. You find the submarine manual and discover that the process is actually slightly more complicated.
 
 In addition to horizontal position and depth, you'll also need to track a third value, aim, which also starts at 0. The commands also mean something entirely different than you first thought:
@@ -172,6 +175,7 @@ Although it hasn't changed, you can still get your puzzle input.
 ## Day 3: Binary Diagnostic
 
 ### --- Part One ---
+
 The submarine has been making some odd creaking noises, so you ask it to produce a diagnostic report just in case.
 
 The diagnostic report (your puzzle input) consists of a list of binary numbers which, when decoded properly, can tell you many useful things about the conditions of the submarine. The first parameter to check is the power consumption.
@@ -210,6 +214,7 @@ To begin, get your puzzle input.
 Answer: 
 
 ### --- Part Two ---
+
 Next, you should verify the life support rating, which can be determined by multiplying the oxygen generator rating by the CO2 scrubber rating.
 
 Both the oxygen generator rating and the CO2 scrubber rating are values that can be found in your diagnostic report - finding them is the tricky part. Both values are located using a similar process that involves filtering out values until only one remains. Before searching for either rating value, start with the full list of binary numbers from your diagnostic report and consider just the first bit of those numbers. Then:
@@ -273,7 +278,7 @@ The submarine has a bingo subsystem to help passengers (currently, you and the g
 18  8 23 26 20
 22 11 13  6  5
  2  0 12  3  7
- ```
+```
 
 After the first five numbers are drawn (7, 4, 9, 5, and 11), there are no winners, but the boards are marked as follows (shown here adjacent to each other to save space):
 
@@ -382,6 +387,7 @@ Because of the limits of the hydrothermal vent mapping system, the lines in your
 An entry like 1,1 -> 3,3 covers points 1,1, 2,2, and 3,3.
 An entry like 9,7 -> 7,9 covers points 9,7, 8,8, and 7,9.
 Considering all lines from the above example would now produce the following diagram:
+
 ```
 1.1....11.
 .111...2..
@@ -394,6 +400,7 @@ Considering all lines from the above example would now produce the following dia
 1.......1.
 222111....
 ```
+
 You still need to determine the number of points where at least two lines overlap. In the above example, this is still anywhere in the diagram with a 2 or larger - now a total of 12 points.
 
 Consider all of the lines. At how many points do at least two lines overlap?
@@ -455,3 +462,14 @@ In this example, after 18 days, there are a total of 26 fish. After 80 days, the
 Find a way to simulate lanternfish. How many lanternfish would there be after 80 days?
 
 To begin, get your puzzle input.
+
+### --- Part Two ---
+
+Suppose the lanternfish live forever and have unlimited food and space. Would they take over the entire ocean?
+
+After 256 days in the example above, there would be a total of 26984457539 lanternfish!
+
+How many lanternfish would there be after 256 days?
+
+Answer: 
+
