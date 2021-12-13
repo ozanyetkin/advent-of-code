@@ -16,6 +16,7 @@ def lanternfish(timer):
         timer -= 1
     return timer
 
+
 # Can't be that easy, let's try for 80 days loop
 for i in range(80):
     for timer in timers:
@@ -27,13 +28,14 @@ print(timers)
 class Lanternfish:
     def __init__(self, timer=8):
         self._timer = timer
-    
+
     def next(self):
         if self._timer == 0:
             self._timer = 6
             return Lanternfish()
         else:
             self._timer -= 1
+
 
 # You know what, we can handle with a function actually, let's try again
 def lanternfish(index, fish_list):
@@ -43,6 +45,7 @@ def lanternfish(index, fish_list):
     else:
         fish_list[index] -= 1
     return fish_list
+
 
 for i in range(len(timers)):
     lanternfish(i, timers)
@@ -57,6 +60,7 @@ def solve(data, days):
         tracker[(day + 7) % 9] += tracker[day % 9]
     return sum(tracker)
 
+
 print(f"Part 1: {solve(timers, 80)}")
 print(f"Part 2: {solve(timers, 256)}")
 
@@ -70,6 +74,7 @@ def solver(timers, days):
             else:
                 timers[i] -= 1
     return len(timers)
+
 
 print(f"Part 1: {solver(timers, 80)}")
 print(f"Part 2: {solver(timers, 256)}")

@@ -25,6 +25,7 @@ def binary_count(binary_list):
     else:
         print("Seems like equality wins, it can even be the first step for world peace")
 
+
 # Small test for binary count function
 print(binary_count([0, 1, 1, 1]))
 print(binary_count([0, 1, 0, 1]))
@@ -38,7 +39,7 @@ for i in range(len(data[0])):
     binary_list = []
     for d in data:
         binary_list.append(int(d[i]))
-    
+
     winner_binary += str(binary_count(binary_list))
     # Below is the most weird solution for converting the 0 to 1 or vice versa, don't try this at home
     loser_binary += str(int(not bool(binary_count(binary_list))))
@@ -54,9 +55,10 @@ def binary_digit(data, index):
     binary_list = []
     for d in data:
         binary_list.append(int(d[index]))
-    
+
     winning_digit = binary_count(binary_list)
     return winning_digit
+
 
 # Small test for winning binary function
 list = ["1010", "1000", "1010", "1000"]
@@ -70,6 +72,7 @@ def binary_remove(binary_list, index, binary_digit):
         if int(b[index]) == binary_digit:
             removed_list.append(b)
     return removed_list
+
 
 # Small test for binary remove function
 # print(binary_remove(data, 1, binary_digit(data, 0)))
@@ -90,6 +93,7 @@ def oxygen_rate(data):
             break
     return data
 
+
 def carbondioxide_rate(data):
     for i in range(len(data[0])):
         print(len(data))
@@ -101,7 +105,7 @@ def carbondioxide_rate(data):
             losing_digit = int(not bool(winning_digit))
         else:
             losing_digit = None
-            
+
         if len(data) > 1:
             if losing_digit is not None:
                 data = binary_remove(data, i, losing_digit)
@@ -112,6 +116,7 @@ def carbondioxide_rate(data):
         else:
             break
     return data
+
 
 # Calculate oxygen rate and carbondioxide rate, convert to base 10 and multiply for the answer
 print(data)

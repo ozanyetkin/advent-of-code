@@ -31,7 +31,7 @@ for i in range(100):
 
         if current < min(up, down, left, right):
             low_points.append(current)
-            low_ids.append((i,j))
+            low_ids.append((i, j))
 
 print(sum([h + 1 for h in low_points]))
 print(low_ids)
@@ -52,7 +52,7 @@ for id in low_ids:
         sink.append(up)
         x += 1
         up = height_matrix[i - x, j] if i > 0 else 10
-    
+
     while down < 9:
         sink.append(down)
         y += 1
@@ -60,12 +60,12 @@ for id in low_ids:
             down = height_matrix[i + y, j] if i < 99 else 10
         except IndexError:
             down = 10
-    
+
     while left < 9:
         sink.append(left)
         z += 1
         left = height_matrix[i, j - z] if j > 0 else 10
-    
+
     while right < 9:
         sink.append(right)
         t += 1

@@ -11,6 +11,7 @@ def read_input(file_name):
         data.append(line)
     return data
 
+
 # Trying the function by calling, will assign it to new list to proceed
 data = read_input("day2.txt")
 

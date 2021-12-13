@@ -46,7 +46,7 @@ print(decrease)
 # Oh there is part two, okay the data is the same, we need to iterate in chunks of 3
 chunk_sums = []
 for i in range(len(data)):
-    chunks = data[i:i+3]
+    chunks = data[i : i + 3]
 
     if len(chunks) == 3:
         chunk_sums.append(sum(chunks))
@@ -68,6 +68,7 @@ def increase_counter(data):
             current = d
 
     return count
+
 
 # Call it with original data to make sure it works as the same and call it also for chunks for answer
 print(increase_counter(data))
